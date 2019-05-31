@@ -1,0 +1,143 @@
+// english textdefinitions tooltips
+// durch TT_PARAMS_ANZAHL=anzahl ...... koennen parameter (int) uebergeben werden
+ 
+// dialogbox to define channel parameters 
+KANAL_EIGENSCHAFTEN_MARK_ALLE=applyes the action written on the button on the left side onto all neurons
+KANAL_EIGENSCHAFTEN_MARK_NEURON=mark or unmark the actual neuron
+KANAL_EIGENSCHAFTEN_STD_LADEN=this provides the possibility to load existing channel definitions from a channel definition file (*.knl) into the channel list. per default these files are stored in .\parameter. all channel definitions in the chosen file are loaded into the channel actually displayed. this channel and the following (in any) are overwritten. to load definitions in addition to existing ones, you should check the box below or, if necessary, go to the last channel in the list, create a new one and than load the knl-file. the overwriting of definitions seems to be unnecessary and avoidable, but this makes you able to actualize/synchronize existing definition sets simply by loading into the first channel.  to prevent unpredictable results, all names has to be unique (provide the existing definitions with distinct appendices or open the knl-file with a text editor, check names and change them if necessary). 
+KANAL_EIGENSCHAFTEN_STD_LADEN_IN_MARKIERTE=if checked and the button above is pressed, definition(s) are appended at the end of the channel list of marked neurons without overwriting anything.
+KANAL_EIGENSCHAFTEN_IDCANCEL=cancel all changes and restore the state before the dialogbox was opened. only channel definitions that have been saved to knl-file will remain.
+KANAL_EIGENSCHAFTEN_STD_SPEICHERN=saves the channel definitions to a knl-file in ".\Parameter"
+KANAL_EIGENSCHAFTEN_NEU=creates a new channel and inserts it after the actual channel in the channel list with all values set to 0.0. a channel is only included in current calculation of a neuron if the conductance is larger than 0.0. if form parameters are 0 the channel is thought to be undefined and will not be stored if channel are saved to file for example.
+KANAL_EIGENSCHAFTEN_LOESCHEN=deletes the actual (displayed) channel and, if necessary, the corresponding inactivating part. the first channel is not deletable, if here exists a definition, simply set conductance to 0.0 to prevent any effect and/or set form parameter to 0 to prevent the message that there are user defined channels
+KANAL_EIGENSCHAFTEN_MARKIERTE=as user defined channels are individual for each neuron, there might be neurons that have many whereas others have none. for this reason channels are identified by their name, i.e. if you press this button, then madSim will check every marked neuron whether it has a channel with an identical name (all charakters, even blancs at the end!) and, if this is the case his definition will be changed to the actually displayed values. to make all changes become valid, press "apply all changes". if you quit this dialog by pressing cancel, then this changes will not take effekt.
+KANAL_EIGENSCHAFTEN_GECHECKTE=same as the button above, but only checked parameters will be updated in channels with the same name in all marked neurons. unchecked parameters will keep their former values.
+KANAL_EIGENSCHAFTEN_OK=apply all changes. changes will take effect only if you press this button. if you cancel the dialog, all changes will be lost and the neurons will be restored to the state just before opening the dialog, only channel definitions that have been saved to knl-file will remain.
+KANAL_EIGENSCHAFTEN_1=the equilibrium potential reflects the ion type and the concentration differences across the membrane, i.e. between inside and outside the neuron
+KANAL_EIGENSCHAFTEN_2=this conductance is the maximum conductance G(max) through all channels of this type in this neuron. it will only be reached, if the open state of the gate (and a 2nd gate of this channel respectively) is 1, otherwise it is lower, because it is multiplicated with the calculated gate-open-faktor m, which depends on the membrane potential. (m lies between 0 and 1 and will be calculated by a differential equation using the displayed parameter values). together with the membrane potential E(M) and the equilibrium potential E(E) the actual current of this channel can be calculated as:\n    I = U / R  ->  I = U * G  ->  I(CH) = (E(M) - E(E)) * (G(max) * m).\n\nspecifying 0 as the conductance will prevent the channel from being included in current calculation during simulation, i.e. that will switch of the channel.\n\nby the way, you might switch off the standard channels (Na, K and Ca) in the neuron "physiologic parameters..." dialog by setting this neuron to "non spiker" or specifying 0.0 to all three conductances.
+KANAL_EIGENSCHAFTEN_3=number of (function-)elements the channel consits of or the number of different channel states the channel might take in.
+KANAL_EIGENSCHAFTEN_4=the differential equation needs to have an initial value for the gate-open-faktor to start it's calculation. normaly, a good idea is to set this value to 0.0 because most voltage gated channels are closed at resting potential. if you specify a value > 0.0 the membrane potential will change immidiately (witout any other influences like electrical stimuli or synaptic activity) due to the current that will flow through the channel (look also at "conductance"). this will provide you an ability to create an initial depolarization with subsequent action potential if conductance is sufficent.
+KANAL_EIGENSCHAFTEN_5=form parameter is a number, that specifies a formula for the calculation of A and B in the exponential euler methode to numerically calculate the differential equation.
+KANAL_EIGENSCHAFTEN_5_BOX=list of available form parameters.\nk:       rate constant\nW:     1   (except 27: W = (Ca2+ conc. const.) + [Ca2+])\nE:       membrane potential (soma)\nV0:    half maximum potential\ns:       stepwidth\n\nthe real meaning of k, V0 and s depends on the model-type, i.e. how A and B are calculated (s. below at "calculate A and B (model type)")
+KANAL_EIGENSCHAFTEN_6=rate constant vary with voltage but not with time and has a dimension of 1/s.  rate constant alpha determines the rate of transfer from outside to inside, while rate constant beta determines the transfer in the opposite direction.
+KANAL_EIGENSCHAFTEN_7=potential in V, where half the channels are open
+KANAL_EIGENSCHAFTEN_8=defines the middle of the range, where the gate variable varies between 0 and 1 in V
+KANAL_EIGENSCHAFTEN_9=see form parameter alpha
+KANAL_EIGENSCHAFTEN_A_B_BERECHNEN_1=to calculate differential equation values approximately by exponential euler methode, the equation has to have the form:\n      da/dt = B - A * a      with a = gate open factor (0 - 1)\ndepending on the model type there are different ways to calculate A and B.\n\nif you don't know, which one to choose for your purposes, use standard channels for sodium, potassium and calcium (sorry!).
+KANAL_AKTIVIERENDER_TEIL=the overall state of some channels depend not only on one, but on to gates, the activating and inactivating gate like in the voltage gated sodium channel. these gates has to be calculated independently and therefore there are two sets of parameters necessary to calculate the open state of both channel parts. the parameter definition set of the inactivating part has to follow directly after the activating part in the channel list.
+KANAL_SYNAPSE_ID=if the box in this field is checked, you can specify a synapse (by synapse ID). transmitter release of this synapse will then activate the channel. in other words: the actual synaptic state (open state) will be multiplied by the actual coductance of the channel. this means that the current through the channel is zero, if the synapse does not release transmitter. if the praesynaptic neuron exceeds the transmitter release threshold, than current will flow depending on the other properties of the channel, weighted by the synapse open state. if the channel is closed, then maximum transmitter release (i.e. open state = 100%) has no effect yet.\nattention: synaptic delay and conductance will be set to minimum values. the former values will be lost.
+
+// dialog box to edit synaptic parameters
+SYNAPSE_NEU_PARENT_COMBOBOX=praesynaptic (parent-) neuron
+SYNAPSE_NEU_TARGET_COMBOBOX=postsynaptic (target-) neuron
+SYNAPSE_NEU_TYP_NATRIUM=excitatory synapse, transmitter dependend sodium channels will be opened in postsynaptic membrane
+SYNAPSE_NEU_TYP_KALIUM=inhibitory synapse, transmitter dependend potassium channels will be opened in postsynaptic membrane
+SYNAPSE_NEU_TYP_CHEMISCH=userdefined synapse, effect depends on potential definition of the appropriate synaptic type
+SYNAPSE_NEU_TYP_ELEKTRISCH=unidirectional elektrical connection
+SYNAPSE_NEU_KONTAKTORT=target area on postsynaptic neuron (soma or dendrite segment)
+SYNAPSE_NEU_POTENTIAL=equilibrium potential (to change potential change synaptic type or create a new one. don't forget to assign changes to the synapse)
+SYNAPSE_NEU_TYP_COMBOBOX=the synaptic type definition specifies the equilibrium potential and assign it to a unique name. in certain cases (axo-axonic synapses for example) it can be necessary to define different types having the same potential. I will remind you if this should be done
+SYNAPSE_NEU_TYP_NEU=create new synaptic type as defined by the displayed name and potential\nfor general synaptic type administration see dialog "synaptic types" (main menu "settings")
+SYNAPSE_NEU_TYP_EDIT=edit synaptic type
+SYNAPSE_NEU_TYP_ZUWEISEN=if you want to change synaptic type (to change potential for example) you have to assign the change. otherwise changes are only applyed to synaptic type definition and not to the actually edited synapse
+SYNAPSE_NEU_TYP_LOESCHEN=delete synaptic type
+SYNAPSE_NEU_DELAY=synaptic delay. this parameter includes both, time for synaptic transmission and axonal (action-)potential propagation
+SYNAPSE_NEU_LEITFAEHIGKEIT=synaptic strength
+SYNAPSE_NEU_TRT=threshold of parent neuron soma potential for transmitter release. the soma potential is assumed not to be changed by axonal propagation but only delayed
+SYNAPSE_NEU_TRS=parent neuron soma potential for maximum transmitter release. further depolarization beyond this potential will not increase transmitter release any more. transmitter release is changed linearly between release threshold and saturation potential.\nto change release dynamics use the possibilities given below. if you don't know why to do that, don't do it!
+SYNAPSE_NEU_TRD_VERZOEGERUNG=this will prolonge the time of transmitter release by the specified duration, i.e. if duration is 0.3 s the transmitter release will last (roughly) 0.3s if preasynaptic membrane potential is depolarized for a short time (action potential for example). increasing and decreasing part are symmetrically. an increase of depolarization time will also increase synaptic strength, because full magnitude - as specified at "conductance" - is reached only after the specified prolongation (0.3s in this example). in this case rather use the calibration factor to adjust synaptic strength rather than "conductance". this function provides a relatively fast way to modulate time course of transmitter release. higher flexibility (particularly if increase and decrease-parts should be different in slope) is available through "dynamics of transmitter release" below.
+SYNAPSE_NEU_TRD_VERZOEGERUNGSFAKTOR=prolongation time
+SYNAPSE_NEU_TRD_VERZOEGERUNGSGEWICHTUNG=synaptic strength calibration
+SYNAPSE_NEU_TRD_BOX=dynamics of transmitter release are modeled by differential equation where increasing and decreasing part can be adjusted individually. unfortunately the parameters of differential equations are not intuitively self explaning. for this reason the dialog provides a test window, where the effects onto the time course of the synapse open-factor are displayed, assuming a "standard action potential" (as defined in "parameter\standardap.txt") is entering the synapse. compared to "transmitter release prolongation" the effort of calculation time is considerable.
+SYNAPSE_NEU_TRD=trd
+SYNAPSE_NEU_BAHNUNG_BOX=enable synaptic facilitation/depression
+SYNAPSE_NEU_BAHNUNG=synaptic facilitation settings
+SYNAPSE_NEU_SYNAPSE_LOESCHEN=delete synapse
+SYNAPSE_NEU_OKF1=apply all changes and start simulation
+SYNAPSE_NEU_OK=apply all changes
+SYNAPSE_NEU_CANCEL=cancel all changes\nchanges made to synaptic types still remains
+
+DIAGRAMM=diagram settings
+DIAGRAMM_Y_RAND=upper and lower margine (distance to end-points of y-axis) in pixel
+DIAGRAMM_X_RAND=left and right margine (distance to end-points of x-axis) in pixel
+DIAGRAMM_ACHSENDICKE=line thickness of axis (0 = thin)
+DIAGRAMM_TICKLAENGE=tick length on x- and y-axis in pixel
+DIAGRAMM_TICKDICKE=tick thickness (0 = no ticks)
+DIAGRAMM_TICK_FONTSIZE=font size of axis label (0 = no label)
+DIAGRAMM_DIMENSIONEN_ANZEIGEN=dimension specifications at axis endpoints (default: [mV] [s])\nfor changes open "format dimensions" dialog
+DIAGRAMM_DIMENSIONEN_FORMATIEREN=change dimension specifications like text, size and position
+DIAGRAMM_TICKS_ANPASSEN=adapt tick length if size of diagram window is changed
+DIAGRAMM_LEGENDE_FORMATIEREN=the names of displayed curves are shown in the upper left corner. click here to adjust legende settings
+DIAGRAMM_CURSOR_DICKE=line thickness for horizontal and vertical cursor
+DIAGRAMM_CURSOR_ART=0: solid;    1: dashed;    2: dotted\n(I've been too lazy to provide a listbox fore line styles, sorry)
+DIAGRAMM_HILFSLINIEN=enable or disable all help lines (display and/or edit)
+DIAGRAMM_HILFSLINIEN_HORIZONTAL=enable or disable horizontal help lines (display and/or edit)
+DIAGRAMM_HILFSLINIEN_VERTIKAL=enable or disable vertical help lines (display and/or edit)
+DIAGRAMM_HILFSLINIEN_DICKE=line thickness for horizontal and vertical help lines
+DIAGRAMM_HILFSLINIEN_ART=linestyle = 0: solid;    1: dashed;    2: dotted
+DIAGRAMM_HILFSLINIEN_WIE_TICKS=horizontal help lines will be painted through the ticks on the y axis
+DIAGRAMM_HILFSLINIEN_NUR_1_HORIZONTALE_LINIE=wenn diese Box gecheckt ist, wird eine von den Teilstrichen unabhängige Linie eingezeichnet
+DIAGRAMM_HILFSLINIEN_HORIZONTALE_LINIE=Definiert die Position einer horizontalen Hilfslinie. Diese wird nur dargestellt, wenn "(nur eine)" gecheckt ist 
+DIAGRAMM_HILFSLINIEN_NUR_1_VERTIKALE_LINIE=damit wird nur eine - frei plazierbare - vertikale Hilfslinie dargestellt
+DIAGRAMM_HILFSLINIEN_VERTIKALE_LINIE=definiert den Abstand der vertikalen Hilfslinien beginnend bei 0.0
+DIAGRAMM_MIN_X=X-axis left endpoint (seconds)
+DIAGRAMM_MAX_X=X-axis right endpoint (seconds)
+DIAGRAMM_URSPRUNG_Y=Y-value of intersection with Y-axis
+DIAGRAMM_TICK_INTERVALL_X=tick distance in seconds starting at 0.0
+DIAGRAMM_TICK_ABSTAND_X=position of tick lower endpoint on X-axis in pixel (0 = on X-axis, negative = below)
+DIAGRAMM_TICK_TEXT_ABSTAND_X=distance of X-axis label (negative = below)
+DIAGRAMM_MIN_Y=Y-axis lower endpoint (in mV)
+DIAGRAMM_MAX_Y=Y-axis upper endpoint (in mV)
+DIAGRAMM_URSPRUNG_X=X-value of intersection with X-axis
+DIAGRAMM_TICK_INTERVALL_Y=tick distance in mV starting at 0.0
+DIAGRAMM_TICK_ABSTAND_Y=position of tick left endpoint on Y-axis in pixel (0 = on Y-axis, negative = left)
+DIAGRAMM_TICK_TEXT_ABSTAND_Y=distance of Y-axis label (negative = left)
+DIAGRAMM_ACHSEN_FARBE=choose colour
+DIAGRAMM_TICK_FARBE=choose colour
+DIAGRAMM_LINIEN_FARBE=choose colour
+DIAGRAMM_CURSOR_FARBE=choose colour
+DIAGRAMM_TEXT_FARBE=choose colour
+DIAGRAMM_IN_VORLAGE_BUTTON=make the actual settings to become the new diagram template
+DIAGRAMM_IN_VORLAGE_UND_AENDERN_BUTTON=make the actual settings to become the new diagram template and change all existing diagrams
+DIAGRAMM_VORLAGE_BUTTON=format the actual diagram using the diagram template
+DIAGRAMM_GECHECKTE_WERTE_AENDERN=change checked items only. all others will remain unchanged
+
+YAX2_ANZ_TICKS=number of axis ticks
+YAX2_DEZI=decimal places shown in axis labels
+YAX2_DEZI_BOX=decimal places shown in axis labels
+YAX2_DIM_ABSTAND=horizontal dimension distance from axis (positive means to the right)
+YAX2_DIM_BOX=displays the label of this curve as specified in the neuron curve dialog
+YAX2_DIM_XPOS=vertical dimension distance along the Y-axis in % (100% is the top axis end; may exceed 100%)
+YAX2_LABEL_ABSTAND=horizontal label distance from axis (positive means to the right)
+YAX2_MAX=upper border of Y-range
+YAX2_MIN=lower border of Y-range
+YAX2_SKALIEREN=calculates min and max value 
+YAX2_TICK_LAENGE=len of axis tick
+YAX2_TICK_POS=horizontal tick position (negative: left to the axis, positive: right)
+YAX2_X_POSITION=horizontal axis position along the X-axis in % (100% is the right axis end; max exceed 100%; size fg right margin might be changed to give space for multiple y-axis).\n\nuse mouse to move axis ;-)
+YAX2_XRANDY2=change right margin between end of x-axis and rigt window border
+
+KURVE_ALLE_IN_ALLEN_DIAGRAMMEN=apply these settings for all curves in all diagrams
+KURVE_ALLE_KURVEN=apply these settings for all curves in this diagram
+KURVE_ART=linestyle: solid, dotted, dashed...
+KURVE_BEZEICHNUNG=curve name. this name will be displayed in the legend (in the upper left part of the diagram) - if the legend is displayed at all ;-)
+KURVE_DARSTELLEN=check this to display the curve shown in the listbox on the right (press apply if you want to make further settings). unchecking only hides the curve, settings will 
+KURVE_DIMENSIONSANGABE=specify a dimension to be displayed on 2nd y-axis (nA?)
+KURVE_EXTERN=inserts a curve from an other neuron in this diagram. be shure to choose a curve not yet used bevore you push this button ;-)
+KURVE_FARBE=choose color
+KURVE_KURVE_IN_ALLEN_DIAGRAMMEN=apply these settings for this curve in all diagrams (this curve means the curve on this position in the curve list)
+KURVE_LOESCHEN=delete curve completely. to redisplay the curve you must run a simulation.
+KURVE_OK=save all changes for the actual curve and quit the dialog
+KURVE_REFERENZEN_LOESCHEN=since the age of the universe is limited, you may delete all references in one 
+KURVE_UEBERNEHMEN=save all changes for this curve and keep the dialog open
+KURVE_WERTE_ANZEIGEN=display values in legend. this option is only working if you activate one vertical cursor 
+KURVE_Y_ZOOM=dangerous option which is only available for historical reasons. to change the Y-resolution or value range specify a 2nd Y-axis
+KURVE_YOFFSET=to move a curve by a certain number of pixel up or down
+KURVE_ZWEITE_Y_ACHSE_BOX=activates a 2nd Y-axis (exclusively for this curve). settings are available by pressing the button to the right
+KURVE_ZWEITE_Y_ACHSE_EINSTELLUNGEN=settings for a 2nd Y-axis for this curve
+KURVEN_AUSWAHL=choose a parameter to be displayed in the diagram. activate it by checking the box to the left. do the desired changes like color, line thicknes ... than press "apply" and choose an other parameter or "ready" if ready :) 
+
+
+
+
+

@@ -1,0 +1,17 @@
+neuron 0 user-SWIM-kanal 0 gleichgewichtspotential=-0.01
+neuron 0 user-SWIM-kanal 0 leitfaehigkeit=1e-008
+neuron 0 user-SWIM-kanal 0 power=1
+neuron 0 user-SWIM-kanal 0 torvariable initialwert=0
+neuron 0 user-SWIM-kanal 0 form alpha=24
+neuron 0 user-SWIM-kanal 0 rate alpha=1
+neuron 0 user-SWIM-kanal 0 V0 alpha=-0.07
+neuron 0 user-SWIM-kanal 0 schrittweite alpha=0.007
+neuron 0 user-SWIM-kanal 0 form beta=23
+neuron 0 user-SWIM-kanal 0 rate beta=3
+neuron 0 user-SWIM-kanal 0 V0 beta=-0.11
+neuron 0 user-SWIM-kanal 0 schrittweite beta=0.013
+neuron 0 user-SWIM-kanal 0 berechnungsmodus fuer A und B=3
+neuron 0 user-SWIM-kanal 0 aktivierungs definition, deaktivierung folgt=0
+neuron 0 user-SWIM-kanal 0 bezeichnung=IH Golowasch
+neuron 0 user-SWIM-kanal 0 hilfsparameter=0
+neuron 0 user-SWIM-kanal 0 hilfsparameter bezeichnung=hilfsparameter

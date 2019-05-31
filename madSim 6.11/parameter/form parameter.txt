@@ -1,0 +1,31 @@
+k * (W + exp((E - V0) / s)) V0 positiv;1
+k * (W + exp((E - V0) / s)) V0 negativ;2
+k * (W + exp((E - V0) / -s)) V0 negativ;3
+k * (W + exp((E - V0) / -s)) V0 positiv;4
+(W + exp((E - V0) / s)) / k;5
+(W + exp((E - V0) / -s)) / k;6
+k * (E - V0) / (W - exp((E - V0) / s));12
+k * (E - V0) / (W - exp((E - V0) / -s));13
+k * (V0 - E) / (W - exp((E - V0) / s));14
+k * (V0 - E) / (W - exp((E - V0) / -s));15
+k + (k / V0 * E) / (W + exp((E + V0) / s));21
+k / (W + exp((E - V0) / s));22
+k / (W - exp((E - V0) / -s));23
+k / (W + exp((E - V0) / -s));24
+1 / (W + exp((E - V0) / s));25
+1 / (W + exp((E - V0) / -s));26
+k / (W - exp((E - V0) / s));27
+k / W;28
+k / (W + exp((E + V0) / s));31
+1.0 / W;32
+k;101
+F - k / (W + exp((E - V0) / -s));102 - 105 (initialisiert fuer na-kanal h und m)
+?m-unendlich fuer na-kanal das entspricht alpha (aktivierung m-tor)?:
+k / (W + exp((-E_POT[0] - 0.0255) / 0.00529));102
+?tau-m fuer na-kanal  das entspricht beta (deaktivierung m-tor)?
+ (1.32 - (k / (W + exp((-0.12 - E_POT[0]) / 0.025))));103
+?h-unendlich	fuer na-kanal entspricht alpha (aktivierung h-tor)?
+k / (W + exp((E_POT[0] + 0.0489) / 0.00518));104
+?tau-h fuer na-kanal das entspricht beta (deaktivierung h-tor)?
+ (0.67 * (k / (W + exp((-0.0629 - E_POT[0]) / 0.01))) * (1.5 + A / (W + exp((E_POT[0] + 0.0349) / 0.0036))));105
+

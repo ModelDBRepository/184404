@@ -1,0 +1,24 @@
+/************************************************************************************************************************
+
+	PROGRAM:	BIOSIM
+
+	FILENAME:	ONOFF.channel.description
+
+	PURPOSE:	description of all parameters used in the ONOFF.channel file
+
+	12 parameter
+
+************************************************************************************************************************/
+
+ONOFF_NA_E		- equilibrium potential of sodium channel
+ONOFF_NA_CONDUCTANCE	- conductance of sodium channel
+ONOFF_NA_DURATION	- opening duration of sodium channel
+ONOFF_K_E		- equilibrium potential of potassium channel
+ONOFF_K_CONDUCTANCE	- conductance of potassium channel
+ONOFF_K_START		- start time of potassium channel opening
+ONOFF_K_DURATION	- opening duration of potassium channel
+ONOFF_CA_E		- equilibrium potential of calcium channel
+ONOFF_CA_CONDUCTANCE	- conductance of calcium channel
+ONOFF_CA_START		- start time of calcium channel opening
+ONOFF_CA_DURATION	- opening duration of calcium channel
+ONOFF_SPIKE_THRESHOLD	- spike threshold

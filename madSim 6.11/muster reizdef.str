@@ -1,0 +1,57 @@
+Reizdefinitionsdatei	// dateikennung, muss genau so geschrieben sein
+Reizname=Musterreiz	// eine - in dieser datei - eindeutige bezeichnung fuer den reiz (reizdefinitionen)
+0			// 0 = auto, hier werden alle folgenden strom-definitionen in diesem reiz beruecksichtigt
+			// ist hier eine zahl angegeben, dann werden nur so viele strom-definitionen verwendet
+			// 11 wuerde in diesem beispiel bedeuten, es werden nur die ersten 11 (also nur die positiven) verwendet 
+0 0			// 1. Reizangabe, MUSS in der zweiten zeile unter "Reizname" stehen, KEINE leerzeilen dazwischen!!!
+110 0.154		// jeweils zeit (in ms) und strom (in nA!!!),
+111 0.293		// innerhalb einer reizdefinition sind kommentar-zeichen // erfordelich
+112 0.404 
+113 0.475 
+114 0.500 
+115 0.475 
+116 0.404 
+117 0.293 
+118 0.154 
+119 0.000
+120 -0.154 
+121 -0.293 
+122 -0.404 
+123 -0.475 
+124 -0.500 
+125 -0.475 
+126 -0.404 
+127 -0.293 
+128 -0.154 
+129 -0,000 
+130 0 
+140 0			// letzte reizangabe, endekennung: strom 2 mal 0
+
+nach dem reiz wird alles bis "Reizname" mit folgendem = zeichen ignoriert (s.u.), braucht auch keine kommentarzeichen //
+es koennen beliebig viele reizdefinitionen in einer datei stehen
+
+Reizname=was kleines		
+0
+0	0
+200	1
+300	0.5
+400	0
+410	0
+
+
+die zeitliche reihenfolge muss konsistent sein (sonst passieren seltsame sachen...). 
+die zeit zwischen 2 strom-definitionen kann beliebig variieren, 
+sie muss aber GROESSER sein als die schrittweite zum erstellen eines stromreizes 
+(s. stromreiz-erstellen-dialog).  
+als trennzeichen kann man BLANK oder TAB benutzen. 
+alle strom-definitionen muessen fortlaufend entweder untereinander oder in einer zeile stehen, 
+damit koennte der reiz "was kleines" auch so aussehen:
+5
+0 0 200 1 300 0.5 400 0 410 0
+aber anders ist es besser lesbar
+
+beim den BEIDEN letzten reiz-punkten muss der strom 0 sein ( = endekennung). 
+deshalb darf der strom waehrend eines reizes NIE in zwei aufeinanderfolgenden angaben 0 sein!!!
+als dezimalzeichen kann man punkt oder komma verwenden
+die dauer des reizes kann hier laenger sein als die simulationsdauer, des machtnix, 
+damit wird madsim fertig

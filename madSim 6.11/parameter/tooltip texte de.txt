@@ -1,0 +1,148 @@
+// textdefinitionen fuer die hilfetexte in den dialogboxen und menues
+// durch TT_PARAMS_ANZAHL=anzahl ...... koennen parameter (int) uebergeben werden
+ 
+// dialogbox zur definition von kanaelen 
+KANAL_EIGENSCHAFTEN_MARK_ALLE=führt die Aktion des nebenstehenden Buttons für alle Neurone aus
+KANAL_EIGENSCHAFTEN_MARK_NEURON=markiert oder demarkiert das aktuelle Neuron
+KANAL_EIGENSCHAFTEN_STD_LADEN=lädt alle kanal-definitionen aus einer knl-datei im verzeichnis ".\Parameter" der aktuelle kanal wird dabei ueberschrieben, weitere kanaele (falls vorhanden) werden vor dem naechsten kanal eingefuegt.\nfalls schon kanaele definiert sind, sollte man zunaechst einen neuen kanal einfuegen und in diesen dann definitionen reinladen.
+KANAL_EIGENSCHAFTEN_STD_LADEN_IN_MARKIERTE=lädt alle kanal-definitionen aus einer knl-datei im verzeichnis ".\Parameter".   der oder die kanaele werden jeweils ans ende der kanal-liste angehaengt ohne existierende definitionen zu ueberschreiben.
+KANAL_EIGENSCHAFTEN_IDCANCEL=stellt den Zustand vor Aufruf der Dialogbox wieder her
+KANAL_EIGENSCHAFTEN_STD_SPEICHERN=speichert die Angaben in einer knl-datei im verzeichnis ".\Parameter"
+KANAL_EIGENSCHAFTEN_NEU=fügt hinter dem aktuellen kanal einen neuen Kanal ein, dessen Werte zunächst alle 0.0 sind.\nfalls schon definitions-daten für diesen kanal-typ vorliegen, können diese mit "Kanal laden" aus einer knl-datei eingefügt werden.\n  -solange die leitfähigkeit des kanals 0.0 ist, wird er nicht in die berechnung mit einbezogen;\n  -solange die beiden form-parameter 0 sind, gilt der kanal zudem als nicht definiert
+KANAL_EIGENSCHAFTEN_LOESCHEN=löscht den aktuellen Kanal (erst ab 2. kanal möglich, der erste kanal kann nur verändert aber nicht geloescht werden). auch die inaktivierungskomponente eines aus 2 definitionen bestehenden kanals (wie z.b. der na-kanal) kann nicht direkt, sondern nur zusammen mit der aktivierenden komponente geloescht werden.
+KANAL_EIGENSCHAFTEN_MARKIERTE=setzt die angezeigten Werte für den aktuellen Kanal bei allen markierten Neuronen, wenn es dort einen kanal mit derselben bezeichnung und denselben form-parametern gibt.\ndie änderungen werden erst durch "alle Änderungen speichern" wirksam
+KANAL_EIGENSCHAFTEN_GECHECKTE=setzt die gecheckten Werte für den aktuellen Kanal bei allen markierten Neuronen, wenn es dort einen kanal mit derselben bezeichnung und denselben form-parametern gibt.\ndie änderungen werden erst durch "alle Änderungen speichern" wirksam
+KANAL_EIGENSCHAFTEN_OK=übernimmt alle Änderungen
+KANAL_EIGENSCHAFTEN_1=das Gleichgewichtspotenzial wird durch den Ionentyp und die Konzentrationsverhaeltnisse bestimmt
+KANAL_EIGENSCHAFTEN_2=die (maximale) Leitfaehigkeit wird in Siemens angegeben. Sie wird dann erreicht, wenn der Oeffnungsfaktor des Kanals 1 ist.\naus aktueller, potenzialabhaengiger Leitfaehigkeit G(M), Gleichgewichtspotenzial E(E) und Membranpotenzial E(M) laesst sich der Strom I(CH) berechnen, der (bei diesen Bedingungen) durch den Kanal fliesst\nnach   I = U / R    ->    I(CH) = (E(M) - E(E)) * G(M)
+KANAL_EIGENSCHAFTEN_3=Anzahl der Zustaende, die dieser Kanal(-Teil) annehmen kann
+KANAL_EIGENSCHAFTEN_4=da der Oeffnungsfaktor (0-1) mithilfe einer Differenzialgleichung berechnet wird, muss man mit irgendeinem Wert anfangen. Sinnvollerweise setzt man diesen auf 0, also geschlossen. 
+KANAL_EIGENSCHAFTEN_5=form-parameter sind artifizielle zahlenangaben, die als code fuer eine spezielle berechnungsmethode verwendet werden
+KANAL_EIGENSCHAFTEN_6=beschreibt irgendwas ...
+KANAL_EIGENSCHAFTEN_7=beschreibt das potential, bei dem die haelfte aller kanaele geoeffnet ist
+KANAL_EIGENSCHAFTEN_8=beschreibt das potential, das genau in der mitte des bereiches liegt, in dem die torvariable m-unendlich von 0 bis 1 variiert
+KANAL_EIGENSCHAFTEN_9=form-parameter sind artifizielle zahlenangaben, die als code fuer eine spezielle berechnungsmethode verwendet werden
+KANAL_EIGENSCHAFTEN_A_B_BERECHNEN_1=berechnungswege fuer die paraneter A und B, die zur naeherungsberechnung fuer die differentialgleichung benoetigt werden
+KANAL_AKTIVIERENDER_TEIL=manche kanaele haben nicht nur ein tor, dessen oeffnungszustand berechnet werden muss. neben dem aktivierungs-tor existiert noch ein inaktivierungs-tor (z.b. spannungsgesteuerter Na-kanal). hierfuer wird ein eigener parametersatz benoetigt, der in der kanal-liste direkt auf diese definition folgen muss. das sollte man bei der benamsung der kanaele entsprechend deutlich machen. wird diese box gecheckt, dann interpretiert madSim die nachfolgenden parameter als berechnungsgrundlage fuer das inaktivierungstor.
+KANAL_SYNAPSE_ID=checkt man die Box in diesem Feld, dann kann man eine Synapse eintragen (über die ID, die angezeigt wird, wenn man auf die Synapse rechtsklickt).  Die Transmitterausschüttung dieser Synapse aktiviert dann den entsprechenden Kanal. Anders formuliert: der aktuelle Öffnungszustand der Synapse wird mit der aktuellen Leitfähigkeit des Kanals multipliziert, d.h. der Strom über diesen Kanal ist Null, solange die Synapse keinen Transmitter ausschüttet. Kommt die präsynaptische Zelle über die Ausschüttungsschwelle, dann kann Strom fließen, wenn der Kanal aufgrund seiner sonstigen Eigenschaften geöffnet ist. Falls der Kanal geschlossen ist, dann hat auch maximale Transmitterausschüttung keinen Effekt. Achtung: Übertragungsdauer  und Leitfähigkeit der Synapse werden auf die minimal möglichen Werte eingestellt. Die ursprünglichen Einstellungen dieser beiden Parameter gehen dabei verloren!
+
+// dialog fuer xlPSPs
+XLPSP_HILFE=
+XLPSP_RUNDEN=in 32 bit betriebssystemen wird (standardmaessig) auf 15 stellen genau gerechnet, dennoch lassen sich die zahlen des dezimalsystems (mit ausnahme der potenzen zur basis 2) im binaersystem nicht exakt darstellen. sie weichen in der 16. stelle ab, nur wird das normalerweise nicht mehr angezeit (was auch vernuenftig ist, denn bezogen auf eine sekunde bedeutet 1e-16 eine zeitspanne, in der das licht gerade mal 30 nanometer zuruecklegt - um z.b. den synaptischen spalt zu ueberqueren, wuerde ein photon 7 mal solange brauchen). weil aber kleinvieh auch mist macht, ergeben sich daraus einige laestige konsequenzen. ein beispiel:\n\nes ergibt sich fuer die simulationsdauer bei einer schrittweite von 0.0001s und insgesamt 45000 simulationsschritten:\nsimDauer = 45000 * 0,0001 = 4.500000000000000 (15 stellen :-)\nerhoeht man aber 45000 mal den zeit-zaehler um 0.0001, dann summieren sich die abweichungen in der 16. stelle\n45000 mal      simDauer = simDauer + 0.0001      ergibt  4.500000000002851\nnatuerlich ist eine abweichung von 2.851e-12 (billionstel) sekunden absolut vernachlaessigbar (das waere das gewicht eines schmetterlings, verglichen mit dem groessten containerschiff der welt). man koennte jetzt denken, dass es voellig wurscht ist, ob ein schmetterling auf einem container-riesen sitzt oder nicht und das stimmt auch - z.b. bezogen auf den spritverbrauch - aber nur so lange, bis der vergleichs-operator ins spiel kommt, denn 4.500000000002851 ist definitiv groesser als 4.5. leider ist dieses phaenomaen nicht auf schmetterlinge und containerschiffe beschraenkt. so war etwa die boersennotierung des euro im fruehjahr 2003 bei ca. 97 cent/dollar. aufgabe: weise nach, dass sich der stand an 2 aufeinander folgenden tagen (0,9723 dann 0,9722) um 0,0001 euro unterscheidet. in excel z.b. mit:\n=WENN(0,9723-0,9722-0,0001=0;"ok";"murks")\nja, was kommt da wohl raus...?
+XLPSP_AP6=\n\neinen ausweg aus dieser misere bietet die einfuehrung einer schwelle die dazu fuehrt, dass alle werte, die kleiner als die schwelle sind auf 0 gesetzt werden. z.b.:\n=WENN(0,9723-0,9722-0,0001<1e-5;"ok";"murks")\nnatuerlich muss man sich im klaren darueber sein, dass dadurch die aufloesung auf die hoehe der schwelle verschlechtert wird.\nbis zu einer simulationsdauer von 10 s und einer schrittweite von 1e-4 (max. abweichung = anzahl simulationsschritte * 1e-15) also 1e5 * 1e-15 = 1e-10 waere eine gute wahl.
+XLPSP_AE3=
+XLPSP_DAUER0=
+XLPSP_DAUER1=
+XLPSP_ANSTIEG0=
+XLPSP_ANSTIEG1=
+XLPSP_AKTIVIEREN=
+XLPSPS_POLYNOM=
+XLPSPS_EXPO=
+
+// dialogbox zum bearbeiten von synapsen
+SYNAPSE_NEU_PARENT_COMBOBOX=Praesynaptisches Neuron zu dieser Synapse
+SYNAPSE_NEU_TARGET_COMBOBOX=Postsynaptisches Neuron zu dieser Synapse
+SYNAPSE_NEU_TYP_NATRIUM=exzitatorische Synapse\nin der postsynaptischen Membran werden Na-Kanäle geöffnet
+SYNAPSE_NEU_TYP_KALIUM=inhibitorische Synapse\nin der postsynaptischen Membran werden K-Kanäle geöffnet
+SYNAPSE_NEU_TYP_CHEMISCH=frei definierbare synapse (wirkung je nach eingestellten Potential in der definition des Synapsentypen)
+SYNAPSE_NEU_TYP_ELEKTRISCH=unidirektional wirkende elektrische verbindung ohne verzögerungszeit.\n\nim dialog "synapsentypen" kann die zielposition auf dendrit 1 und 2 beschraenkt oder diese beschraenkung wieder aufgehoben werden
+SYNAPSE_NEU_KONTAKTORT=Ansatzstelle der Synapse am postsynaptischen Neuron
+SYNAPSE_NEU_POTENTIAL=Gleichgewichtspotential der Synapse, äquivalent zum Potential in Synapsentypen.\nFalls dieses Potential geaendert werden soll, dann muss dazu entweder ein anderer Typ zugewiesen, oder ein neuer Typ erzeugt werden.\nder aktuelle Synapsentyp kann hier nicht veraendert werden (nur im Dialog Synapsentypen).\nFalls ein neuer Typ erzeugt werden soll, dann hier zuerst das gewuenschte Potential eintragen und anschliessend eine eindeutige Bezeichnung angeben.\n\nACHTUNG: einfach nur das Potential aendern ist WIRKUNGSLOS!!!
+SYNAPSE_NEU_TYP_COMBOBOX=Auswahl eines Synapsentyps\nzur Neudefinition zuerst das Potential angeben (ausser bei el. Synapsen), dann hier neue Bezeichnung eintagen, anschliessend "neuer Typ" oder "Typ zuweisen" anklicken
+SYNAPSE_NEU_TYP_NEU=neuen Synapsentyp anlegen mit o.g. Potential bzw. Bezeichnung\nVorgehensweise: erst das Potential eingeben, dann die Bezeichnung aendern.\n\nEinen besseren Überblick gibt der Befehl Synapsentypen ... im Menu "Einstellungen->Verschiedenes" des Hauptfensters
+SYNAPSE_NEU_TYP_EDIT=Synapsentyp editieren
+SYNAPSE_NEU_TYP_ZUWEISEN=falls ein anderer synapsentyp für diese synapse gewählt oder neu erzeugt wurde, dann sollte er noch explizit zugewiesen werden, weil das in einigen (wenigen) Faellen nicht automatisch gemacht werden kann.
+SYNAPSE_NEU_TYP_LOESCHEN=Synapsentyp löschen
+SYNAPSE_NEU_DELAY=Verzögerung bei der Synaptischen Signalübertragung\n\nDarin steckt sowohl das synaptische Delay als auch die Zeit für die Fortleitung des Aps über das Axon
+SYNAPSE_NEU_LEITFAEHIGKEIT=Übertragungsstärke der Synapse
+SYNAPSE_NEU_TRT=ab diesem Potential beginnt die Synapse Transmitter auszuschütten
+SYNAPSE_NEU_TRS=Potential, bei dem die maximale Transmitterausschüttung erreicht ist\ndamit läßt sich die Dynamik der Synapse beeinflußen
+SYNAPSE_NEU_SYNAPSE_LOESCHEN=Synapse löschen
+SYNAPSE_NEU_OKF1=alle Änderungen übernehmen und sofort eine Simulation starten
+SYNAPSE_NEU_OK=alle Änderungen übernehmen
+SYNAPSE_NEU_CANCEL=Änderungen verwerfen\n\n(Änderungen an den Synapsentypen bleiben bestehen)
+
+DIAGRAMM=Einstellungen für Diagramme
+DIAGRAMM_Y_RAND=oberer und unterer Rand (Abstand zu den Enden der Y-Achse) in Pixeln
+DIAGRAMM_X_RAND=linker und rechter Rand (Abstand zu den Enden der X-Achse) in Pixeln
+DIAGRAMM_ACHSENDICKE=Zeichenstärke der Achsen (0 = fein)
+DIAGRAMM_TICKLAENGE=Länge der Teilstriche an X- und Y-Achse in Pixeln
+DIAGRAMM_TICKDICKE=Zeichenstärke der Teilstriche (0 = keine Teilstriche)
+DIAGRAMM_TICK_FONTSIZE=Größe der Achsen-Beschriftung in Punkten (0 = keine Beschriftung)
+DIAGRAMM_DIMENSIONEN_ANZEIGEN=am oberen bzw rechten Ende der Achsen werden Dimensionsangaben dargestellt (Standard: [mV] [s])\n\nDimensionen können in einem eigenen Dialog formattiert werden
+DIAGRAMM_DIMENSIONEN_FORMATIEREN=Einstellen von Größe, Position und Beschriftung der Dimensionsangaben an den Achsen
+DIAGRAMM_TICKS_ANPASSEN=Die Länge der Teilstriche wird bei einer Änderung der Fenstergröße angepaßt
+DIAGRAMM_LEGENDE_FORMATIEREN=Als Legende wird in der linken oberen Ecke die Bezeichnung der Kurven angezeigt. Hier können die Einstellungen geändert werden.\n\nfalls "Werte in Legende anzeigen" gecheckt ist, wird hinter der Kurvenbezeichnung der Wert unter dem vertikalen Cursor angezeigt
+DIAGRAMM_CURSOR_DICKE=Zeichenstärke für die horizontalen und vertikalen Cursor
+DIAGRAMM_CURSOR_ART=0: durchgezogen;    1: gestrichelt;    2: gepunktet\n\n(ich war zu faul, nochmal ne Listbox einzubauen, sorry)
+DIAGRAMM_HILFSLINIEN=zum Ein- und Ausschalten der Hilfslinien, ohne deren Einstellungen zu verändern. Zum Editieren irgendwelcher Hilfslinieneinstellungen muss dieses Feld gecheckt sein.
+DIAGRAMM_HILFSLINIEN_HORIZONTAL=zum Ein- und Ausschalten der horizontalen Hilfslinien, ohne deren Einstellungen zu verändern. Zum Editieren irgendwelcher Hilfslinieneinstellungen muss dieses Feld gecheckt sein.
+DIAGRAMM_HILFSLINIEN_VERTIKAL=zum Ein- und Ausschalten der vertikalen Hilfslinien, ohne deren Einstellungen zu verändern. Zum Editieren irgendwelcher Hilfslinieneinstellungen muss dieses Feld gecheckt sein.
+DIAGRAMM_HILFSLINIEN_DICKE=Zeichenstärke für die horizontale und vertikale Hilfslinien
+DIAGRAMM_HILFSLINIEN_ART=Linienart: durchgezogen, gestrichelt oder gepunktet
+DIAGRAMM_HILFSLINIEN_WIE_TICKS=je nach den Einstellungen der Teilstriche werden horizontale Hilfslinien eingezeichnet. "(nur eine)" ergibt eine zusätzliche 1 Linie (hat sich als ganz praktisch erwiesen)
+DIAGRAMM_HILFSLINIEN_NUR_1_HORIZONTALE_LINIE=wenn diese Box gecheckt ist, wird eine von den Teilstrichen unabhängige Linie eingezeichnet
+DIAGRAMM_HILFSLINIEN_HORIZONTALE_LINIE=Definiert die Position einer horizontalen Hilfslinie. Diese wird nur dargestellt, wenn "(nur eine)" gecheckt ist 
+DIAGRAMM_HILFSLINIEN_NUR_1_VERTIKALE_LINIE=damit wird nur eine - frei plazierbare - vertikale Hilfslinie dargestellt
+DIAGRAMM_HILFSLINIEN_VERTIKALE_LINIE=definiert den Abstand der vertikalen Hilfslinien beginnend bei 0.0
+DIAGRAMM_MIN_X=linkes Ende der X-Achse (in Sekunden)
+DIAGRAMM_MAX_X=rechtes Ende der X-Achse (in Sekunden)
+DIAGRAMM_URSPRUNG_Y=Y-Wert des Schnittpunktes mit der Y-Achse
+DIAGRAMM_TICK_INTERVALL_X=Abstand der Teilstriche in Skunden, beginnend bei 0.0
+DIAGRAMM_TICK_ABSTAND_X=Position des unteren Endes der Teilstriche in Pixeln (0 = auf der X-Achse, negativ = unterhalb)
+DIAGRAMM_TICK_TEXT_ABSTAND_X=Abstand der Teilstrich-Beschriftung von der X-Achse (negativ = unterhalb)
+DIAGRAMM_MIN_Y=unteres Ende der Y-Achse (in mV)
+DIAGRAMM_MAX_Y=oberes Ende der Y-Achse (in mV)
+DIAGRAMM_URSPRUNG_X=X-Wert des Schnittpunktes mit der X-Achse
+DIAGRAMM_TICK_INTERVALL_Y=Abstand der Teilstriche in mV, beginnend bei 0.0
+DIAGRAMM_TICK_ABSTAND_Y=Position des linken Endes der Teilstriche in Pixeln (0 = auf der Y-Achse, negativ = links)
+DIAGRAMM_TICK_TEXT_ABSTAND_Y=Abstand der Teilstrich-Beschriftung von der Y-Achse (negativ = links)
+DIAGRAMM_ACHSEN_FARBE=...
+DIAGRAMM_TICK_FARBE=...
+DIAGRAMM_LINIEN_FARBE=...
+DIAGRAMM_CURSOR_FARBE=...
+DIAGRAMM_TEXT_FARBE=...
+DIAGRAMM_IN_VORLAGE_BUTTON=damit werden die aktuellen Einstellungen in die Diagrammvorlage übernommen
+DIAGRAMM_IN_VORLAGE_UND_AENDERN_BUTTON=übernimmt die aktuellen Einstellungen in die Diagrammvorlage und ändert die Diagramme aller anderen Fenster entsprechend
+DIAGRAMM_VORLAGE_BUTTON=formatiert das aktuelle Diagramm mit den Einstellungen aus der Diagrammvorlage
+DIAGRAMM_GECHECKTE_WERTE_AENDERN=im "Diagramm-Layout" werden nur die gecheckten Parameter in allen Diagrammen geändert, alle übrigen Parameter bleiben unverändert\n\nin der "Diagrammvorlage" werden alle anderen Diagramme mit diesen Einstellungen formatiert 
+
+KURVE_ZWEITE_Y_ACHSE_ANZ_TICKS=Anzahl der Teilstriche auf der Achse
+KURVE_ZWEITE_Y_ACHSE_DEZI=Anzahl der dargestellten Dezimalstellen bei der Achsenbeschriftung
+KURVE_ZWEITE_Y_ACHSE_DEZI_BOX=Stellt die Beschriftung mit der rechts angegebenen Anzahl von Dezimalstellen dar
+KURVE_ZWEITE_Y_ACHSE_DIM_ABSTAND=Horizontaler Abstand der Achsen-Dimension (positiv = rechts)
+KURVE_ZWEITE_Y_ACHSE_DIM_BOX=Stellt die im Dialog "Kurven von Neuron" unter Dimensionsangabe eingetragene Bezeichnung dar
+KURVE_ZWEITE_Y_ACHSE_DIM_XPOS=Vertikale Position entlang der Y-Achse in % (100% ist ganz oben, negativ = im unteren Rand, über 100 = im oberen Rand)
+KURVE_ZWEITE_Y_ACHSE_LABEL_ABSTAND=Abstand der Beschriftung von der Achse (positiv = rechts)
+KURVE_ZWEITE_Y_ACHSE_MAX=Maximaler auf der Y-Achse darstellbarer Wert
+KURVE_ZWEITE_Y_ACHSE_MIN=Minimaler auf der Y-Achse darstellbarer Wert
+KURVE_ZWEITE_Y_ACHSE_SKALIEREN=Setzt den minimalen und maximalen Wert des dargstellten Kurvenbereiches als Achsenendpunkte
+KURVE_ZWEITE_Y_ACHSE_TICK_LAENGE=Länge eines Teilstrichs
+KURVE_ZWEITE_Y_ACHSE_TICK_POS=Horizontale Teilstrichposition (0 = linksständig, positiv = rechts)
+KURVE_ZWEITE_Y_ACHSE_X_POSITION=Horizontale Position entlang der X-Achse in % (100% ist das rechte Ende der X-Achse, negativ = im linken Rand, über 100 = im rechten Rand).\nDie Y-Achse kann mit der Maus verschoben werden.
+KURVE_ZWEITE_Y_ACHSE_XRANDY2=Rechten Rand um so viele Pixel verbreitern
+
+KURVE_ALLE_IN_ALLEN_DIAGRAMMEN=diese Einstellungen fuer alle Kurven in allen Diagrammen uebernehmen
+KURVE_ALLE_KURVEN=diese Einstellungen fuer alle Kurven in diesem Diagramm uebernehmen
+KURVE_ART=Linienart: durchgezogen, gepunktet...
+KURVE_BEZEICHNUNG=Name der Kurve. Dieser wird in der Legende angezeigt (falls die Legende angezeigt wird).
+KURVE_DARSTELLEN=Durch diese Checkbox kann eine Kurve angezeigt werden. Entfernt man den Tag, wird die Kurve nicht mehr angezeigt, die Einstellungen bleiben zunächst erhalten (werden aber beim Speichern nicht mitgespeichert)
+KURVE_DIMENSIONSANGABE=Angabe einer Dimension (etwa mV oder sowas) oder einer Achsenbezeichnung. Dies kann bei sekundärachsen mit angezeigt werden.
+KURVE_EXTERN=Ermöglicht die Anzeige einer Kurve eines anderen Neurons im aktuellen Diagramm.\nAm besten folgendermassen vorgehen:\n1. eine freie Kurve wählen\n2. diesen Button drücken und dann das betreffende neuron und die darzustellende Kurve wählen
+KURVE_FARBE=Farbe der Kurve ändern
+KURVE_ID=Diese F'n ist nur aus historischen Gründen vorhanden und wenn man nicht weiss, wozu sie gut ist, muss man sie eigentlich nicht benutzen. 
+KURVE_KURVE_IN_ALLEN_DIAGRAMMEN=die Einstellungen fuer diese Kurve (wird über die Kurvennummer (bzw ID) gefunden) in allen Diagrammen übernehmen
+KURVE_LOESCHEN=futsch ist futsch...
+KURVE_OK=Alle Änderungen werden übernommen. Dabei werden die links nebenstehenden Checkboxen berücksichtigt.
+KURVE_REFERENZEN_LOESCHEN=Das spart einfach Zeit...
+KURVE_UEBERNEHMEN=Alle Änderungen werden übernommen. Dabei werden die links stehenden Checkboxen berücksichtigt.
+KURVE_WERTE_ANZEIGEN=Gecheckt werden in der Legende die Werte der jeweiligen Kurve angezeit, die unter dem vertikalen Cursor liegen. Diesen erhält man im Diagramm durch links-Klicken mit gleichzeitig gedrückter linker SHIFT-Taste (die rechte SHIFT-Taste blendet den horizontalen Cursor ein)
+KURVE_Y_ZOOM=Ändert die Spreizung in Y-Richtung. ACHTUNG: die Y-Achse wird dabei nicht neu skaliert. Besser ist es eine "eigene Y-Achse" für diese Kurve zu definieren (geht ganz einfach) und die Skalierung entsprechend einstellen.
+KURVE_YOFFSET=Damit läßt sich eine Kurve vertikal verschieben. ACHTUNG: die Y-Achse wird dabei nicht neu skaliert. Gedacht ist diese F'n speziell zum leichten Verschieben von Referenz-Kurven, z.b. um 1 Pixel. Dann sieht man sofort, ob eine Änderung keinen Einfluss hatte, oder der gesamte Verlauf sich drastisch verändert hat. Das ist besonders hilfreich in Diagrammen mit mehreren Kurven.
+KURVE_ZWEITE_Y_ACHSE_BOX=Aktiviert eine eigene Y-Achse für diese Kurve. Diese Kann mit nebenstehendem Button eingerichtet und später im Diagramm horizontal verschoben werden.
+KURVE_ZWEITE_Y_ACHSE_EINSTELLUNGEN=Einstellungen für eine eigene Y-Achse für diese Kurve
+KURVEN_AUSWAHL=Zur Auswahl einer Kurve (von 20 möglichen), für die die Einstellungen angezeigt werden. Die voreingestellten Kurven können durch andere überschrieben werden (z.b. durch externe). Welche Kurven überhaupt dargestellt werden sollen, kann man auch im Dialog "Darzustellende Parameter ..." aus dem Menue "Einstellungen" im Hauptfenster definieren, dort kann aber sonst nix geaendert werden.\nAusserdem sollte man bei der Anzahl dargestellter Kurven pro Neuron bedenken, dass pro Simulationsschritt fuer jede Kurve 4 Byte Speicherplatz benötigt werden. Für 10 Sekunden simulierter Zeit fallen z.b. pro Kurve bei 1e-5s Schrittweite 4MB Daten an.
+
+
+
+
